@@ -20,7 +20,6 @@ public class Ex02_Caution {
 	  //정수형
 	  long big =1000000000L;
 	  System.out.println(big);
-	  
 	}
 
 }
