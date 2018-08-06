@@ -9,7 +9,7 @@ public class PracticeMain {
 		
 		Scanner in = new Scanner(System.in);
 
-		System.out.println("학생수입력 ->");
+		System.out.println("학생수입력 ->"); //입력을 받아야 하는 것만 클래스로 묶어
 		int n = in.nextInt();  // 학생수
 		
 		Practice [] g = new Practice[n];
@@ -35,12 +35,21 @@ public class PracticeMain {
 		
 
 		// 
+		for(int i=0; i<g.length-1; i++) {
+			for(int j=0; j<g.length-i-1; j++) {
+				if( g[j].getSum() > g[j+1].getSum()) {
+					Practice temp = g[j];
+					g[j] = g[j+1];
+					g[j+1] = temp;
+				}
+			}
+		}
 
 		for(int j = 0 ; j < n ; j++) {
 			System.out.println(j+"번쨰 학생의 점수는 "+ g[j].getSum() + "/" + g[j].getAvg() );
 		}
 
-
+		in.close();
 	}
 }
 
