@@ -6,13 +6,13 @@ public class Practice {
 	private int sum;
 	private double avg;
 
-	public Practice (int id, int a[]) {
+	public Practice (int id, int a[]) { //여기에는 합이나 평균은 입력받는 것이 아니니 필요 없어
 		this.n = id;
 		this.a = a;
 	}
 	
 	public void calTotal(){
-		sum = a[0] + a[1] + a[2];
+		sum = a[0] + a[1] + a[2];//여기서 계산 값을 구해주는 것
 	}
 
 	public void calAverage(){
