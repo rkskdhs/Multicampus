@@ -1,6 +1,6 @@
 package g_inherit;
 
-public class umma {
+public class umma extends Object {
 	public umma() {
 		System.out.println("엄마 생성자");
 	}
