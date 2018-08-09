@@ -1,5 +1,7 @@
 package gui_info;
 import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class Gui_infoTest {
 
@@ -85,5 +87,7 @@ public class Gui_infoTest {
 		Gui_infoTest it = new Gui_infoTest();
 		it.addLayout();
 	}
+	
+	
 	
 }
