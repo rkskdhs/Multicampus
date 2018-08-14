@@ -1,6 +1,9 @@
 package network.chat;
 
-
+//accept->반복문안에 있으면 여러명을 받을 수 있는 
+// 근대 다른 일을 못하니 쓰레드 반복문 수행
+//반복적으로 일이 독립적으로 이루어지면 통제 불가-> arraylist
+//
 import java.io.*;
 import java.util.*;
 import java.net.*;
