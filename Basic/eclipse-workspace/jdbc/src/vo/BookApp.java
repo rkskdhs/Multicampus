@@ -4,7 +4,8 @@ public class BookApp {
 
 	public static void main(String[] args) {
 		BookManager bm = new BookManager();
-		System.out.println(bm.getBook());
+		bm.getBook();
+		// System.out.println(bm.getBook());
 
 	}
 

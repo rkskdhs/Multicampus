@@ -4,61 +4,50 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import util.jdbc_util;
 
-public class BookManager {
-	public static List getBook() {
-		//public static searchTitlebook(String title){
-		//List<Bookvo> 
+public class jdbc_practice7 {
+
+	public static void main(String[] args) {
 		System.out.println("+++++main start+++++");
 		String driver = "oracle.jdbc.OracleDriver";
 		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
 		String user = "SCOTT";
 		String pw = "TIGER";
 
-
+		
 		Connection con =null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		Bookvo book = null;
-		
-		String sql = "select * from book order by bookid";
 
-		List<Bookvo> list = new ArrayList<>();
+		//String sql = "update book set price = 8000000 where bookid = 1 ";
+		String sql = "update book set title = ?, price = ? where bookid = ? ";
 		try {
 			con = jdbc_util.getConnection();
 			ps = con.prepareStatement(sql);
-			rs = ps.executeQuery();
 			
+			// 값세팅?가 있을 경우
 			
+			ps.setString(1, "아마존");
+			ps.setInt(2, 950);
+			ps.setInt(3, 1);
+			int result = ps.executeUpdate();
 			
-			while(rs.next()) {
-				book = new Bookvo();
-				book.setBookid(rs.getInt("bookid"));
-				book.setTitle(rs.getString("Title"));
-				book.setPrice(rs.getInt("Price"));
-				book.setPubdate(rs.getDate("pubdate").toString());
-				list.add(book);
-				System.out.println(book);
-			}
-
+			System.out.println(result + "row update");
+			
 			//결과값 핸들링
-
+			
 		}catch(SQLException e) {
-			 e.printStackTrace(); 
+			// e.printStackTrace(); 
 		}finally {
 			jdbc_util.close(rs, ps, con);
-
-
 			System.out.println("++++++main end+====");
 		}
 
-		return list;
 
-
+		
+		
 	}
 
 }
